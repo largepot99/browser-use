@@ -1,0 +1,358 @@
+# Workflow Templates Catalog
+# Comprehensive library of task templates for various automation use cases
+
+templates:
+  # ==================== INVOICE & PAYMENTS ====================
+  - id: invoice_submission
+    name: "Invoice Submission"
+    category: invoice_management
+    description: "Submit invoices to factoring companies"
+    use_case: "Submit invoices to BlueVine, Fundbox, etc."
+    frequency: on_demand
+
+  - id: payment_status_check
+    name: "Payment Status Check"
+    category: invoice_management
+    description: "Check status of submitted invoices"
+    use_case: "Monitor payment status and get payment dates"
+    frequency: daily
+
+  - id: batch_invoice_submission
+    name: "Batch Invoice Submission"
+    category: invoice_management
+    description: "Submit multiple invoices at once"
+    use_case: "End of day invoice batch processing"
+    frequency: on_demand
+
+  # ==================== ELD & FLEET MANAGEMENT ====================
+  - id: daily_eld_extraction
+    name: "Daily ELD Logs Extraction"
+    category: eld_management
+    description: "Extract daily ELD/HOS logs for all drivers"
+    use_case: "Sync ELD data to your system daily"
+    frequency: daily
+    cron: "0 6 * * *"
+
+  - id: driver_hours_monitor
+    name: "Driver Hours Monitor"
+    category: eld_management
+    description: "Monitor driver hours and alert on violations"
+    use_case: "Real-time HOS compliance monitoring"
+    frequency: interval
+    interval_minutes: 30
+
+  - id: ifta_report_download
+    name: "IFTA Report Download"
+    category: eld_management
+    description: "Download quarterly IFTA reports"
+    use_case: "Automated IFTA tax reporting"
+    frequency: quarterly
+    cron: "0 9 1 1,4,7,10 *"
+
+  - id: vehicle_inspection_sync
+    name: "Vehicle Inspection Sync"
+    category: eld_management
+    description: "Extract DVIR (Daily Vehicle Inspection Reports)"
+    use_case: "Track vehicle maintenance compliance"
+    frequency: daily
+
+  # ==================== COMPLIANCE & SAFETY ====================
+  - id: insurance_verification
+    name: "Insurance Coverage Verification"
+    category: compliance
+    description: "Verify insurance policies and expiration dates"
+    use_case: "Ensure all vehicles have active insurance"
+    frequency: weekly
+    cron: "0 9 * * 1"
+
+  - id: driver_license_check
+    name: "Driver License Verification"
+    category: compliance
+    description: "Verify driver licenses are current and valid"
+    use_case: "Compliance check for expired licenses"
+    frequency: weekly
+
+  - id: dot_inspection_monitor
+    name: "DOT Inspection Monitor"
+    category: compliance
+    description: "Track DOT inspection due dates"
+    use_case: "Alert on upcoming DOT inspections"
+    frequency: weekly
+
+  - id: safety_score_tracking
+    name: "Safety Score Tracking"
+    category: compliance
+    description: "Monitor CSA scores and safety ratings"
+    use_case: "Track FMCSA safety performance"
+    frequency: weekly
+
+  # ==================== LOAD BOARDS & DISPATCH ====================
+  - id: load_board_scraper
+    name: "Load Board Scraper"
+    category: dispatch
+    description: "Search and extract available loads"
+    use_case: "Find loads on DAT, Truckstop, etc."
+    frequency: interval
+    interval_minutes: 15
+
+  - id: rate_confirmation_download
+    name: "Rate Confirmation Download"
+    category: dispatch
+    description: "Download rate confirmations from load boards"
+    use_case: "Automated rate con retrieval"
+    frequency: on_demand
+
+  - id: bol_upload
+    name: "BOL Upload"
+    category: dispatch
+    description: "Upload BOL/POD documents"
+    use_case: "Submit delivery documentation"
+    frequency: on_demand
+
+  # ==================== REPORTS & ANALYTICS ====================
+  - id: monthly_financial_report
+    name: "Monthly Financial Report"
+    category: reports
+    description: "Download monthly P&L and financial reports"
+    use_case: "Automated accounting data sync"
+    frequency: monthly
+    cron: "0 0 1 * *"
+
+  - id: fuel_report_download
+    name: "Fuel Report Download"
+    category: reports
+    description: "Download fuel transaction reports"
+    use_case: "Fuel card reconciliation"
+    frequency: weekly
+
+  - id: maintenance_report
+    name: "Maintenance Report"
+    category: reports
+    description: "Extract maintenance history and costs"
+    use_case: "Track maintenance expenses"
+    frequency: monthly
+
+  - id: driver_performance_report
+    name: "Driver Performance Report"
+    category: reports
+    description: "Extract driver performance metrics"
+    use_case: "Driver scorecards and KPIs"
+    frequency: weekly
+
+  # ==================== FUEL & EXPENSES ====================
+  - id: fuel_card_transactions
+    name: "Fuel Card Transactions Sync"
+    category: expenses
+    description: "Extract fuel card transactions"
+    use_case: "Daily fuel expense tracking"
+    frequency: daily
+
+  - id: toll_transactions
+    name: "Toll Transactions Sync"
+    category: expenses
+    description: "Download toll transactions (PrePass, EZPass)"
+    use_case: "Toll expense reconciliation"
+    frequency: weekly
+
+  - id: expense_report_submission
+    name: "Expense Report Submission"
+    category: expenses
+    description: "Submit driver expense reports"
+    use_case: "Driver reimbursement automation"
+    frequency: on_demand
+
+  # ==================== CUSTOMER PORTALS ====================
+  - id: customer_portal_status_check
+    name: "Customer Portal Status Check"
+    category: customer_service
+    description: "Check load status in customer portals"
+    use_case: "Update customers on shipment status"
+    frequency: interval
+    interval_minutes: 60
+
+  - id: pod_upload_customer
+    name: "POD Upload to Customer Portal"
+    category: customer_service
+    description: "Upload proof of delivery to customer portals"
+    use_case: "Automated POD submission"
+    frequency: on_demand
+
+  - id: invoice_submission_customer
+    name: "Invoice Submission to Customer"
+    category: customer_service
+    description: "Submit invoices to customer portals"
+    use_case: "Customer-specific invoicing"
+    frequency: on_demand
+
+  # ==================== HR & PAYROLL ====================
+  - id: timesheet_extraction
+    name: "Timesheet Extraction"
+    category: hr_payroll
+    description: "Extract driver timesheets"
+    use_case: "Automated payroll processing"
+    frequency: biweekly
+
+  - id: mileage_report
+    name: "Mileage Report for Payroll"
+    category: hr_payroll
+    description: "Extract driver mileage for pay calculation"
+    use_case: "Mileage-based pay processing"
+    frequency: biweekly
+
+  # ==================== MAINTENANCE & ASSETS ====================
+  - id: maintenance_reminder_check
+    name: "Maintenance Reminder Check"
+    category: maintenance
+    description: "Check for upcoming maintenance schedules"
+    use_case: "Preventive maintenance tracking"
+    frequency: daily
+
+  - id: parts_inventory_sync
+    name: "Parts Inventory Sync"
+    category: maintenance
+    description: "Sync parts inventory from shop portal"
+    use_case: "Track parts usage and ordering"
+    frequency: weekly
+
+  - id: warranty_claim_submission
+    name: "Warranty Claim Submission"
+    category: maintenance
+    description: "Submit warranty claims for repairs"
+    use_case: "Automated warranty processing"
+    frequency: on_demand
+
+  # ==================== PERMITS & LICENSING ====================
+  - id: permit_renewal_check
+    name: "Permit Renewal Check"
+    category: permits
+    description: "Check permit expiration dates"
+    use_case: "Track IRP, UCR, permits"
+    frequency: monthly
+
+  - id: permit_application
+    name: "Permit Application Submission"
+    category: permits
+    description: "Submit online permit applications"
+    use_case: "Automated permit renewals"
+    frequency: on_demand
+
+  # ==================== BROKER/CARRIER PORTALS ====================
+  - id: carrier_packet_submission
+    name: "Carrier Packet Submission"
+    category: broker_portals
+    description: "Submit carrier setup documents to brokers"
+    use_case: "New broker onboarding"
+    frequency: on_demand
+
+  - id: broker_payment_check
+    name: "Broker Payment Status Check"
+    category: broker_portals
+    description: "Check payment status in broker portals"
+    use_case: "Track outstanding invoices"
+    frequency: daily
+
+  - id: insurance_cert_upload
+    name: "Insurance Certificate Upload"
+    category: broker_portals
+    description: "Upload insurance certificates to broker portals"
+    use_case: "Automated insurance updates"
+    frequency: on_demand
+
+# Common sub-workflows (reusable components)
+sub_workflows:
+  - name: portal_login
+    category: authentication
+    description: Generic portal login with 2FA and CAPTCHA support
+
+  - name: fleet_portal_login
+    category: authentication
+    description: Fleet management portal login (KeepTruckin, Samsara, etc.)
+
+  - name: factoring_portal_login
+    category: authentication
+    description: Factoring company portal login
+
+  - name: extract_table
+    category: extraction
+    description: Extract data from HTML tables with pagination
+
+  - name: download_file
+    category: file_operations
+    description: Download file and wait for completion
+
+  - name: upload_file
+    category: file_operations
+    description: Upload file to web form
+
+  - name: fill_form
+    category: data_entry
+    description: Fill multi-field forms intelligently
+
+  - name: navigate_menu
+    category: navigation
+    description: Navigate through multi-level menus
+
+  - name: handle_popup
+    category: ui_handling
+    description: Handle modal dialogs and popups
+
+  - name: wait_for_processing
+    category: ui_handling
+    description: Wait for background processing to complete
+
+# Task categories metadata
+categories:
+  - id: invoice_management
+    name: Invoice Management
+    icon: 💰
+    color: green
+
+  - id: eld_management
+    name: ELD & Hours of Service
+    icon: 🚛
+    color: blue
+
+  - id: compliance
+    name: Compliance & Safety
+    icon: ✅
+    color: red
+
+  - id: dispatch
+    name: Dispatch & Load Boards
+    icon: 📋
+    color: orange
+
+  - id: reports
+    name: Reports & Analytics
+    icon: 📊
+    color: purple
+
+  - id: expenses
+    name: Fuel & Expenses
+    icon: ⛽
+    color: yellow
+
+  - id: customer_service
+    name: Customer Portals
+    icon: 👥
+    color: cyan
+
+  - id: hr_payroll
+    name: HR & Payroll
+    icon: 💵
+    color: pink
+
+  - id: maintenance
+    name: Maintenance & Assets
+    icon: 🔧
+    color: gray
+
+  - id: permits
+    name: Permits & Licensing
+    icon: 📜
+    color: brown
+
+  - id: broker_portals
+    name: Broker/Carrier Portals
+    icon: 🤝
+    color: indigo
